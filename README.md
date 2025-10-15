@@ -4,6 +4,9 @@ The project, named "PDMLSE", refers to a DSP-assisted non-linear equalizer imple
 
 For more details about the designs and layout, please refer to the **<ins>"TestPlan.pdf"</ins>**, **<ins>"fabrication drawing.pdf"</ins>**, or **<ins>"pdmlse_pcb.pdf"</ins>** files or contact Kunmo (kunmok@berkeley.edu). 
 
-## Appendix 
-The hammer workspace used for PDMLSE tapeout can be found in this [link](https://bwrcrepo.eecs.berkeley.edu/sunjin_choi/hammer_pdmlse_workspace). 
+PCB front-side 
+![Alt text](board_front.png)
 
+
+PCB back-side 
+![Alt text](board_back.png)

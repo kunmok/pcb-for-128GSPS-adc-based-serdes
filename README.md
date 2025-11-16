@@ -32,3 +32,8 @@ For more details about the designs and layout, please refer to the [TestPlan.pdf
 
 ## PCB Back-Side: Bias Generation (Fixed and Programmable) and Offset Cal IDAC
 ![Alt text](board_back.png)
+
+## Photos 
+![Alt text](pcb_front_photo.png)
+![Alt text](pcb_back_photo.png)
+

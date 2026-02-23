@@ -13,7 +13,7 @@ For more details about the designs and layout, please refer to the [TestPlan.pdf
 
 - A stripline configuration is employed for the clock transmission line instead of a grounded coplanar waveguide (GCPW) to further reduce potential coupling between the clock and data paths. The stripline structure also offers greater design flexibility for PCB-to-BGA transitions, enabling a more coaxial-like interface and improved signal integrity.
 
-- For differential signal generation, an on-board balun (MTX2-183+) is used in place of an external balun and additional phase-matched cables. This approach significantly reduces both cost and board area. The balanced output of the balun is AC-coupled through Murata BBSC-series DC blockers before being routed to the BGA package.
+- For differential signal generation, an on-board balun (MTX2-183+) is used in place of an external balun and additional phase-matched cables. This approach significantly reduces both cost and board area. Marki's surface mount balun could be a great alternative, but none of those parts were available during the component selection stage of this board design. The balanced output of the balun is AC-coupled through Murata BBSC-series DC blockers before being routed to the BGA package.
 
 - The chip integrates an on-chip analog multiplexer (AMUX) to monitor various DC bias points, including the CTLE and ABUF bias and output DC voltages as well as local VDD nodes across the die. The AMUX output is routed to an on-board unity-gain buffer, which then drives a 24-bit ADC (ADS122C04) for precision measurement. In addition, a DS4424N+ four-channel current DAC is used for CTLE and ABUF offset cancellation.
 

@@ -15,8 +15,6 @@ For more details about the designs and layout, please refer to the [TestPlan.pdf
 
 - For differential signal generation, an on-board balun (MTX2-183+) is used in place of an external balun and additional phase-matched cables. This approach significantly reduces both cost and board area. Marki's surface mount balun could be a great alternative, but none of those parts were available during the component selection stage of this board design. The balanced output of the balun is AC-coupled through Murata BBSC-series DC blockers before being routed to the BGA package.
 
-- The chip integrates an on-chip analog multiplexer (AMUX) to monitor various DC bias points, including the CTLE and ABUF bias and output DC voltages as well as local VDD nodes across the die. The AMUX output is routed to an on-board unity-gain buffer, which then drives a 24-bit ADC (ADS122C04) for precision measurement. In addition, a DS4424N+ four-channel current DAC is used for CTLE and ABUF offset cancellation.
-
 - Unlike the clock path, the data path is not routed through the PCB. This decision was made because the foundry-provided package has a thickness of 1.2 mm, which introduces significant parasitic inductance through the plated through-holes. This inductance creates a pronounced notch near 60 GHz in the insertion loss profile. The resulting loss could not be adequately compensated by the on-chip CTLE, and therefore, the data signal is directly delivered to the chip using a probe-based approach. The probe landing pads, along with the transmission path between the probe pad, C4 bumps, and on-chip matching network, were modeled and verified using full 3D EM simulations.
 
 ### Ground Plane and Signal Isolation Strategy
@@ -30,6 +28,9 @@ For more details about the designs and layout, please refer to the [TestPlan.pdf
 ### Bias Generation
 - Backside of the PCB mostly contain bias generation circuit. For bias current generation, a combination of LT3092 and AD5252/AD5254 series digitally programmable resistors was used, enabling flexible bias-level optimization through I2C control.
 - REF200s are used for non-programmable bias (cascode bias, CMFB OTA bias, and misc 100 uA). 
+
+### AMUX for Analog Signal Monitoring and CTLE+ABUF Offset Cancellation 
+- The chip integrates an on-chip analog multiplexer (AMUX) to monitor various DC bias points, including the CTLE and ABUF bias and output DC voltages as well as local VDD nodes across the die. The AMUX output is routed to an on-board unity-gain buffer, which then drives a 24-bit ADC (ADS122C04) for precision measurement. In addition, a DS4424N+ four-channel current DAC is used for CTLE and ABUF offset cancellation.
 
 ## PCB Front-Side: 16 GHz CLK Path, LDOs, ADC, and Connectors
 ![Alt text](board_front.png)

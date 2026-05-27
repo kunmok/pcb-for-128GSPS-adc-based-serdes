@@ -25,7 +25,9 @@ For more details about the designs and layout, please refer to the [TestPlan.pdf
 
 ### Power Supply Network
 - A cascaded LDO topology—comprising LT3073 followed by LT3074—was implemented to enhance the overall PSRR.
-- Murata's NFM-series capacitors are mainly used as decaps. Front-side PCB uses 10 uF caps, and back-side PCB uses 1 uF caps.
+- Murata's NFM-series capacitors are mainly used as decaps. Decaps on L1 (front side) are mainly 10 uF NFM capacitors, and decaps on L6 (back side) are 1 uF NFM capacitors.
+- Unlike the common practice of selecting three different capacitor values to cover a broad frequency range, this design uses only two values. The Murata NFM decaps exhibit a very high self-resonant frequency, so their self-resonant behavior does not require careful staggering across multiple values. The smaller 1 uF value on L6 is chosen to account for the via inductance between L1 and L6.
+- On the chip side, a substantial amount of MIM decaps plus MOM caps are connected in series with a 0.5 Ω resistance. This intentional ESR overdamps the on-chip PDN, improving resiliency against Ldi/dt noise. This behavior was verified via Spectre simulation.
 
 ### Bias Generation
 - Backside of the PCB mostly contain bias generation circuit. For bias current generation, a combination of LT3092 and AD5252/AD5254 series digitally programmable resistors was used, enabling flexible bias-level optimization through I2C control.

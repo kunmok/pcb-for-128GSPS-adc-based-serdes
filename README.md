@@ -47,3 +47,7 @@ For more details about the designs and layout, please refer to the [TestPlan.pdf
 ![Alt text](pcb_front_photo.png)
 ![Alt text](pcb_back_photo.png)
 
+## Author
+
+Designed by **Kunmo Kim** — [kunmo.kim0225@gmail.com](mailto:kunmo.kim0225@gmail.com) ·
+[kunmok.github.io](https://kunmok.github.io)
